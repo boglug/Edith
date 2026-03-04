@@ -49,7 +49,7 @@ h1 {
 }
 
 h2 {
-    font-size: 32px; /* можна змінити під дизайн */
+    font-size: 32px;
 }
 
 /* ==========================
@@ -109,8 +109,8 @@ h2 {
 ========================== */
 .countdown {
     padding: 20px 25px;
-  margin-top: -90px;  
-  display: flex;
+    margin-top: -90px;  
+    display: flex;
     justify-content: space-around;
     align-items: center;
     z-index: 1;
@@ -207,7 +207,7 @@ footer::before { background-image: url("https://i.postimg.cc/zGYhDf44/photo-5242
 .timeline::after { background-image: url("https://i.postimg.cc/52Wz9tDZ/photo-5242437129202242592-w.jpg"); right: 0; }
 .details::after { background-image: url("https://i.postimg.cc/zGYhDf4s/photo-5242437129202242595-w.jpg"); right: 0; }
 .wishes::after { background-image: url("https://i.postimg.cc/52Wz9tDZ/photo-5242437129202242592-w.jpg"); right: 0; }
-footer::after { background-image: url("https://i.postimg.cc/zGYhDf4s/photo-5242437129202242595-w.jpg");  width: 120px; right: -24px; }
+footer::after { background-image: url("https://i.postimg.cc/zGYhDf4s/photo-5242437129202242595-w.jpg"); width: 120px; right: -24px; }
 
 /* ==========================
    Calendar внутрішня сітка
@@ -271,126 +271,61 @@ footer::after { background-image: url("https://i.postimg.cc/zGYhDf4s/photo-52424
 ========================== */
 footer {
     font-family: 'Marck Script', cursive;
-    font-size: 24px;
+    
+   font-size: 24px;
+   padding: 20px 85px 20px 120px;
     color: #2f4f3f;
 }
+
 /* ==========================
-   МОБІЛЬНА АДАПТАЦІЯ
+   ROTATE WARNING
 ========================== */
-@media (max-width: 480px) {
-
-    body {
-        padding: 0;
-    }
-
-    .invitation {
-        width: 100%;
-        max-width: 100%;
-        border-radius: 0;
-        box-shadow: none;
-    }
-
-    /* HERO */
-    .hero-content {
-        padding: 120px 15px;
-    }
-
-    h1 {
-        font-size: 32px;
-        line-height: 1.2;
-    }
-
-    h2 {
-        font-size: 24px;
-    }
-
-    .date .day-name { font-size: 16px; }
-    .date .day-number { font-size: 24px; }
-    .date .month-name { font-size: 16px; }
-
-    /* Invite block */
-    .invite-text {
-        padding: 50px 15px 30px 15px;
-    }
-
-    .invite-text::before {
-        width: 120px;
-        height: 120px;
-        opacity: 0.2;
-    }
-
-    /* Countdown */
-    .countdown {
-        padding: 15px;
-        margin-top: -60px;
-    }
-
-    .countdown .time {
-        gap: 10px;
-    }
-
-    .countdown span { font-size: 20px; }
-    .countdown small { font-size: 12px; }
-
-    /* Секції з боковими картинками */
-    .calendar,
-    .location,
-    .timeline,
-    .details,
-    .wishes,
-    footer {
-        padding: 15px 40px;
-    }
-
-    /* Бокові фото */
-    .calendar::before,
-    .calendar::after,
-    .location::before,
-    .location::after,
-    .timeline::before,
-    .timeline::after,
-    .details::before,
-    .details::after,
-    .wishes::before,
-    .wishes::after,
-    footer::before,
-    footer::after {
-        width: 40px;
-    }
-
-    footer::before {
-        width: 40px;
-        left: 0;
-    }
-
-    footer::after {
-        width: 40px;
-        right: 0;
-    }
-
-    footer {
-        font-size: 18px;
-        z-index: 2;
-        position: relative;
-    }
-
-    /* Календар */
-    .calendar .weekdays div,
-    .calendar .dates div {
-        font-size: 12px;
-        padding: 3px;
-    }
-
-    /* Location image */
-    .location-img {
-        max-width: 140px;
-        padding-left: 5px;
-        padding-right: 5px;
-    }
-
-    /* Кнопки */
-    .btn {
-        font-size: 12px;
-        padding: 8px 18px;
-    }
+#rotate-warning {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    text-align: center;
+    padding: 20px;
 }
+
+.rotate-box {
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+}
+
+.rotate-box p {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.phone {
+    width: 60px;
+    height: 100px;
+    border: 3px solid #fff;
+    border-radius: 15px;
+    margin: 0 auto;
+    position: relative;
+    animation: rotatePhone 2s infinite ease-in-out;
+}
+
+.screen {
+    position: absolute;
+    top: 10px;
+    left: 8px;
+    right: 8px;
+    bottom: 10px;
+    background: #fff;
+    border-radius: 8px;
+}
+
+@keyframes rotatePhone {
+    0% { transform: rotate(0deg); }
+    40% { transform: rotate(90deg); }
+    60% { transform: rotate(90deg); }
+    100% { transform: rotate(0deg); }
+}
+
